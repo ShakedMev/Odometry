@@ -30,7 +30,7 @@ public class Odometry {
 
     public double calculateSpeedMPS(double leftRPM, double rightRPM) {
         try {
-            return ((leftRPM + rightRPM) /2) * this.wheelCircumferenceCM /100; // Because centimeters to meters
+            return ((leftRPM + rightRPM) /0.2) * this.wheelCircumferenceCM /100; // Because centimeters to meters
         }
         catch(NullPointerException e) {
             DriverStation.reportError("Must set wheel diameter before calculating speed!", true);
@@ -44,9 +44,9 @@ public class Odometry {
      * If the speed parameter is in meters per second, then the x and y values are meters.
      */
     public double[] calculatePosition(double angle, double speed) {
-        double distance =+ speed * this.timer.get();
-        this.position[0] = Math.sin(angle) * distance;
-        this.position[1] = Math.cos(angle) * distance;
+        double distance = speed * this.timer.get();
+        this.position[0] =+ Math.sin(angle) * distance;
+        this.position[1] =+ Math.cos(angle) * distance;
         this.timer.reset();
         this.timer.start();
         return this.position;
