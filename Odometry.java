@@ -11,12 +11,12 @@ public class Odometry {
     private Timer timer;
 
     public Odometry() {
-        this.position = {0, 0};
+        this.position = new double[] {0, 0};
         this.timer = new Timer();
     }
 
     public Odometry(double x, double y) {
-        this.position = {x, y};
+        this.position = new double[] {x, y};
         this.timer = new Timer();
     }
 
